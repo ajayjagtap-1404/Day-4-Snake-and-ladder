@@ -5,9 +5,9 @@ public class SnakeLadder {
         System.out.println("Welcome to Snake Ladder program :");
         int position = 0;
 
-        for (position = 0; position < 100 ; position++){
+        for ( position = 0; position < 100; position++) {
 
-            int randomDiceNumber = (int) Math.floor(Math.random() * 100 ) % 6 + 1 ;
+            int randomDiceNumber = (int) Math.floor(Math.random() * 100) % 6 + 1 ;
             int option = (int) Math.floor(Math.random() * 10) % 3;
 
             switch (option) {
@@ -20,19 +20,21 @@ public class SnakeLadder {
                     break;
                 case 2:
                     // ladder
-                    // increasing position of player by adding randomDiceNumber variable
-                    position =  position + randomDiceNumber;
-
+                    position = position + randomDiceNumber;
+                    if (position > 100) {
+                        position = position - randomDiceNumber;
+                    }
                     break;
                 default:
                     // no play
-                    // position remains same
                     position = position;
                     break;
+
             }
-
+            if (position == 100) {
+                break;
+            }
         }
-        System.out.print("final Position " + position + " ");
-
+        System.out.print("final Position of Player " + position + " ");
     }
 }
